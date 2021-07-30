@@ -1,0 +1,104 @@
+<div class="container-fluid TopConatiner">
+    <div class="SecondContainer">
+        <div class="row" style="margin:0px">
+            <!-- <div class="col-lg-12">
+                <div id="imageCarousel" class="carousel slide" data-interval="2000" data-ride="carousel"
+                    data-pause="hover" data-wrap="true">
+                    <ol class="carousel-indicators">
+                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#imageCarousel" data-slide-to="1"></li>
+                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active" *ngFor="let data of TopShows">
+                            <div>
+                                <div class="col-lg-4">
+                                    <img src="{{data.image.medium}}" class="img-responsive">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="item " *ngFor="let data of TopShows">
+                            <div>
+                                <div class="col-lg-4">
+                                    <img src="{{data.image.medium}}" class="img-responsive">
+                                </div>
+
+                            </div>
+                        </div>
+                        <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row" style="margin: 0px;">
+                <div>
+                    <h4 class="cwhite HeadingAlign">Popular shows</h4>
+                </div>
+                <div *ngFor="let data of TopShows">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 TextOnHover">
+                        <div [routerLink]="['/ShowDetails',data.externals.tvrage]">
+                            <img class="zoom" src="{{data.image.medium}}" />
+                            <div class="ImagetextAlign">
+                                <div class="Name">{{data.name}}</div>
+                                <div class="Genres">{{data.genres}}</div>
+                                <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
+                                        {{data.network.name}}</span></div>
+                                <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
+                                    {{data.rating.average}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin: 0px;">
+                <div>
+                    <h4 class="cwhite HeadingAlign">Comedy Shows</h4>
+                </div>
+                <div *ngFor="let data of ComedyShows">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 TextOnHover">
+                        <div class="" [routerLink]="['/ShowDetails',data.id]">
+                            <img class="zoom" src="{{data.image.medium}}" />
+                            <div class="ImagetextAlign">
+                                <div class="Name">{{data.name}}</div>
+                                <div class="Genres">{{data.genres}}</div>
+                                <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
+                                        {{data.network.name}}</span></div>
+                                <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
+                                    {{data.rating.average}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin: 0px;">
+                <div>
+                    <h4 class="cwhite HeadingAlign">Popular in Drama</h4>
+                </div>
+                <div *ngFor="let data of DramaShows">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 TextOnHover">
+                        <div class="" [routerLink]="['/ShowDetails',data.id]">
+                            <img class="zoom" src="{{data.image.medium}}" />
+                            <div class="ImagetextAlign">
+                                <div class="Name">{{data.name}}</div>
+                                <div class="Genres">{{data.genres}}</div>
+                                <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
+                                        {{data.network.name}}</span></div>
+                                <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
+                                    {{data.rating.average}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

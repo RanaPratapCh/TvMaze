@@ -1,0 +1,15 @@
+<div>
+    <nav class="navbar navbar-inverse ShowNavbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" [routerLink]="['/Dashboard']">TV Maze</a>
+            </div>
+            <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="navbar-right">
+                <div>
+                    <input (ngModel)="SearchText" name="SearchText" autocomplete="off"  type="text" class="ShowInput" placeholder="Search">
+                    <i class="glyphicon glyphicon-search"></i>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>

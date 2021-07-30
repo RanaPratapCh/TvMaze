@@ -1,0 +1,32 @@
+<div class="container-fluid TopConatiner">
+    <div class="SecondContainer">
+        <div *ngIf="SearchResult?.length > 0">
+            <h4 class="cwhite HeadingAlign">Showing all results for : <i>{{UserSearch}}</i></h4>
+        </div>
+        <div *ngIf="SearchResult?.length > 0">
+            <div *ngFor="let data of SearchResult">
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 TextOnHover">
+                    <div  [routerLink]="['/ShowDetails',data.show.externals.tvrage]">
+                        <img class="zoom" src="{{data.show.image.medium}}" />
+                        <div class="ImagetextAlign">
+                            <div class="Name">{{data.show.name}}</div>
+                            <div class="Genres">{{data.show.genres}}</div>
+                            <div class="Language">{{data.show.language}}<span *ngIf="data.show.network">,{{data.show.network.name}}</span></div>
+                            <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i> {{data.show.rating.average}}
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="SearchResult?.length == 0">
+            <div class="cwhite VerticalCenter" align="center">
+                <h3>Nothing found!</h3>
+                <h4>Try searching for something else</h4>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container-fluid TopConatiner">
+    <div class="SecondContainer">
+        <div>
+            <div *ngIf="ShowData" style="padding: 20px;">
+                <img style="display: inline;width: 30%;float: right;padding-left: 10px;" src="{{ShowData.image.medium}}" />
+                <span style="color: white;">
+                    <h2>{{ShowData.name}}</h2>
+                    <div style="color: rgba(255, 255, 255, 0.6);">
+                        <span><i style="color: gold;" class="glyphicon glyphicon-star"></i> {{ShowData.rating.average}}</span>
+                        <span> &nbsp;{{ShowData.language}}</span>
+                        <span> &nbsp;{{ShowData.runtime}}min</span>
+                        <span> &nbsp;{{ShowData.premiered.split('-')[0]}}</span>
+                    </div>
+                    <h5><div style="padding-right: 10px ;text-align: start;" innerHTML = {{ShowData.summary}}></div></h5>
+                    <h3>Show info</h3>
+                    <div>
+                        <span style="font-weight: bold;">Network : </span> <span>{{ShowData.network.country.name}} {{ShowData.network.name}}</span>
+                    </div>
+                    <div>
+                        <span style="font-weight: bold;">Schedule : </span> <span>{{ShowData.schedule.days}} &nbsp; {{ShowData.schedule.time}}</span>
+                    </div>
+                    <div>
+                        <span style="font-weight: bold;">Language : </span> <span>{{ShowData.language}}</span>
+                    </div>
+                    <div>
+                        <span style="font-weight: bold;">Genres : </span> <span>{{ShowData.genres}}</span>
+                    </div>
+                    <div>
+                        <span style="font-weight: bold;">Status : </span> <span>{{ShowData.status}}</span>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
