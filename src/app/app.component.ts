@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TvshowService } from './Services/tvshow.service';
+import { TvshowService } from './services/tvshow.service';
 
 @Component({
   selector: 'app-root',

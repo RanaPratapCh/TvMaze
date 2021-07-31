@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TvshowService } from '../Services/tvshow.service';
+import { TvshowService } from '../services/tvshow.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,43 +9,39 @@ import { TvshowService } from '../Services/tvshow.service';
 })
 export class DashboardComponent implements OnInit,OnDestroy {
 
-  AllShows:any;
-  Ratings: any[] =[];
-  TopShows:any;
-  DramaShows:any;
-  ComedyShows:any;
-  GetAllShowsSubscription : Subscription | undefined;
-
+  allShows:any;
+  topShows:any;
+  dramaShows:any;
+  comedyShows:any;
+  getallShowsSubscription : Subscription | undefined;
+  dashboardLoading = false;
   constructor(private Tvshows:TvshowService) { }
 
   ngOnInit(): void {
-    this.GetAllShowsAndDetails();
+    this.getAllShowsAndDetails();
   }
 
-  GetAllShowsAndDetails(){
-    this.GetAllShowsSubscription = this.Tvshows.getAllShows().subscribe((data)=>{
+  getAllShowsAndDetails(){
+    this.dashboardLoading = true;
+    this.getallShowsSubscription = this.Tvshows.getAllShows().subscribe((data)=>{
       try{
-        this.AllShows = data;
-        console.log('data' , this.AllShows);
-        this.TopShows = this.AllShows.sort((a: any,b: any)=> b.rating.average - a.rating.average).slice(0,6)
-        this.DramaShows = this.AllShows.filter((item:any)=>item.genres.includes("Drama")).slice(0,6);
-        this.ComedyShows = this.AllShows.filter((item:any)=>item.genres.includes("Comedy")).slice(0,6);
-        console.log('top 20 : ' ,this.TopShows);
-        console.log('Darama:',this.DramaShows);
-        console.log('Comedy:',this.ComedyShows);
-        
+        this.allShows = data;
+        this.topShows = this.allShows.sort((a: any,b: any)=> b.rating.average - a.rating.average).slice(0,20)
+        this.dramaShows = this.allShows.filter((item:any)=>item.genres.includes("Drama")).slice(0,20);
+        this.comedyShows = this.allShows.filter((item:any)=>item.genres.includes("Comedy")).slice(0,20);  
+        this.dashboardLoading = false;      
       }catch(e){
-        
+        this.dashboardLoading = false;
       }
       
     },error =>{
-
+      this.dashboardLoading = false;
     });
   }
 
   ngOnDestroy(){
-    if(this.GetAllShowsSubscription)
-      this.GetAllShowsSubscription.unsubscribe();
+    if(this.getallShowsSubscription)
+      this.getallShowsSubscription.unsubscribe();
   }
 
 }

@@ -1,3 +1,4 @@
+@import '../colors/color';
 .zoom {
     width: 100%;
     transition: transform .2s; 
@@ -18,8 +19,8 @@
 
 .ImagetextAlign{
     margin-top:-100px;
-    background: #0c111b;
-    color: white;
+    background: $containerBackgroundColor;
+    color: $fontColorWhite;
     position: absolute;
     padding: 10px;
     width: 101%;
@@ -28,11 +29,17 @@
     left:-1px;
     visibility: hidden;
     cursor: pointer;
-
+    z-index: 99999
 
 }
+.carousel{
+    height: 300px!important;
+}
+.ContainerMargin{
+    margin: 0px;
+}
 .cwhite{
-    color: white;
+    color: $fontColorWhite;
 }
 .TextOnHover{
     padding: 0px;

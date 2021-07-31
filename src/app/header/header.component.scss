@@ -1,29 +1,29 @@
+@import '../colors/color';
 .ShowNavbar{
-    background: #131a27;
+    background: $navbarBackgroundColor;
     min-height: 75px;
     border-radius: 0px;
-    border-color: #131a27;
+    border-color: $navbarBackgroundColor;
     position: fixed;
     width: 100%;
     z-index: 999999;
 }
-.navbar-brand{
-    padding-top: 25px;
-    margin-left: 0px!important;
-    color: white;
-    font-size: 25px;
+.LogoImage{
+    padding-top: 15px;
+    width: 20%;
+    cursor: pointer;
 }
 .navbar-right{
     margin-right: 0px;
-    padding:25px;
+    padding-top:25px;
     padding-bottom: 0px;
 }
 .ShowInput{
-    background: #131a27;
+    background: $navbarBackgroundColor;
     border: 0px;
     border-bottom: solid 1px rgba(255, 255, 255, 0.6);
     width: 300px;
-    color: white;
+    color: $fontColorWhite;
     transition: width 0.5s; 
     font-size: 17px;
 }
@@ -34,9 +34,28 @@ input:focus-visible{
     transition: width 0.5s; 
 }
 ::placeholder { /* Most modern browsers support this now. */
-    color:    white;
+    color:    $fontColorWhite;
  }
  .glyphicon-search{
      color: rgba(255, 255, 255, 0.6);
      margin-left: -20px;
  }
+ .UserInputAlign{
+     float: right;
+ }
+
+
+@media only screen and (max-width: 567px){
+    .LogoImage{
+        width: 80%!important;
+    }
+    .navbar-right{
+        padding: 15px!important;
+    }
+    .ShowInput{
+        width: 200px!important;
+    }
+    input:focus-visible{
+        width: 300px!important;
+    }
+}

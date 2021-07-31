@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { TvshowService } from '../Services/tvshow.service';
+import { TvshowService } from '../services/tvshow.service';
 
 @Component({
   selector: 'app-searcheddetails',
@@ -10,44 +10,45 @@ import { TvshowService } from '../Services/tvshow.service';
 })
 export class SearcheddetailsComponent implements OnInit,OnDestroy {
 
-  UserSearch = "";
-  GetUserSearchDetailsSubscription : Subscription | undefined;
-  SearchResult : any;
+  userSearch = "";
+  getUserSearchDetailsSubscription : Subscription | undefined;
+  searchResult : any;
+  searchDetailsLoading = false;
 
-  constructor(private activeRoute:ActivatedRoute,private Tvshows:TvshowService) { }
+  constructor(private activeRoute:ActivatedRoute,private tvShows:TvshowService) { }
 
   ngOnInit(): void {
 
     this.activeRoute.params.forEach((params: Params)=>{
       if(params['SearchText'] !== undefined){
-        this.UserSearch = params['SearchText'];
-        this.GetSearchDetails();
+        this.userSearch = params['SearchText'];
+        this.getSearchDetails();
       }else{
-        this.UserSearch = "";
+        this.userSearch = "";
       }
     });
 
   }
 
-  GetSearchDetails(){
-    this.GetUserSearchDetailsSubscription = this.Tvshows.searchShow(this.UserSearch).subscribe((data)=>{
-      try{
-        console.log('search result : ',data);
-        
-        this.SearchResult = data;
+  getSearchDetails(){
+    this.searchDetailsLoading = true;
+    this.getUserSearchDetailsSubscription = this.tvShows.searchShow(this.userSearch).subscribe((data)=>{
+      try{    
+        this.searchDetailsLoading = false;   
+        this.searchResult = data;       
       }catch(e){
-
+        this.searchDetailsLoading = false;
       }
       
     },error =>{
-
+      this.searchDetailsLoading = false;
     });
   }
 
   ngOnDestroy(){
 
-    if(this.GetUserSearchDetailsSubscription)
-      this.GetUserSearchDetailsSubscription.unsubscribe();
+    if(this.getUserSearchDetailsSubscription)
+      this.getUserSearchDetailsSubscription.unsubscribe();
 
   }
 

@@ -10,6 +10,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ShowdetailsComponent } from './showdetails/showdetails.component';
 import { SearcheddetailsComponent } from './searcheddetails/searcheddetails.component'
 import { FormsModule } from '@angular/forms';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

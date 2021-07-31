@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { TvshowService } from '../Services/tvshow.service';
+import { TvshowService } from '../services/tvshow.service';
 
 @Component({
   selector: 'app-showdetails',
@@ -10,40 +10,41 @@ import { TvshowService } from '../Services/tvshow.service';
 })
 export class ShowdetailsComponent implements OnInit,OnDestroy {
 
-  ShowDetailsId = 0;
-  ShowDetailsSubscription : Subscription | undefined;
-  ShowData:any;
+  showDetailsId = 0;
+  showDetailsSubscription : Subscription | undefined;
+  showData:any;
+  showDetailsLoading = false;
 
-  constructor(private activeRoute:ActivatedRoute,private Tvshows:TvshowService) { }
+  constructor(private activeRoute:ActivatedRoute,private tvShows:TvshowService) { }
 
   ngOnInit(): void {
     this.activeRoute.params.forEach((params: Params)=>{
       if(params['id'] !== undefined){
-        this.ShowDetailsId = params['id'];
-        this.GetShowDetailsData();
+        this.showDetailsId = params['id'];
+        this.getShowDetailsData();
       }else{
-        this.ShowDetailsId = 0;
+        this.showDetailsId = 0;
       }
     });
 
   }
-  GetShowDetailsData(){
-    this.ShowDetailsSubscription = this.Tvshows.getShowDetails(this.ShowDetailsId).subscribe((data)=>{
+  getShowDetailsData(){
+    this.showDetailsLoading = true;
+    this.showDetailsSubscription = this.tvShows.getShowDetails(this.showDetailsId).subscribe((data)=>{
       try{
-        console.log('showsdata',data);
-        this.ShowData = data;
-        
+        this.showDetailsLoading = false;
+        this.showData = data;
       }catch(e){
-
+        this.showDetailsLoading = false;
       }
       
     },error =>{
-
+      this.showDetailsLoading = false;
     });
   }
   ngOnDestroy(){
-    if(this.ShowDetailsSubscription)
-      this.ShowDetailsSubscription.unsubscribe();
+    if(this.showDetailsSubscription)
+      this.showDetailsSubscription.unsubscribe();
   }
 
 }

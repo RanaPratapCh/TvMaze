@@ -1,12 +1,12 @@
 <div>
     <nav class="navbar navbar-inverse ShowNavbar">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" [routerLink]="['/Dashboard']">TV Maze</a>
+            <div class="navbar-header col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <img class="LogoImage" [routerLink]="['/Dashboard']" src="https://static.tvmaze.com/images/tvm-header-logo.png"/>
             </div>
-            <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="navbar-right">
-                <div>
-                    <input (ngModel)="SearchText" name="SearchText" autocomplete="off"  type="text" class="ShowInput" placeholder="Search">
+            <form #formData="ngForm" (ngSubmit)="onSubmit(formData)" class="navbar-right   col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="UserInputAlign">
+                    <input (ngModel)="searchText" name="searchText" autocomplete="off"  type="text" class="ShowInput" placeholder="Search">
                     <i class="glyphicon glyphicon-search"></i>
                 </div>
             </form>

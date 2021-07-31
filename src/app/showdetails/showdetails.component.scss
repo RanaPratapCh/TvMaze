@@ -1,0 +1,46 @@
+@import '../colors/color';
+.fw-bold{
+    font-weight: bold;
+}
+.SummaryTaxt{
+    padding-right: 10px ;
+    text-align: start;
+}
+.glyphicon-star{
+    color: gold;
+}
+.LightWhite{
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.infoBackgorund{
+    background: $navbarBackgroundColor;
+    padding: 50px;
+    margin-top: 50px;
+    width: 35%;
+    border-radius: 25px;
+}
+h3{
+    margin-top: 0px;
+}
+
+.cwhite{
+    color: $fontColorWhite;
+}
+.ImageAlign{
+    display: inline;
+    width: 30%;
+    float: right;
+    padding-left: 10px;
+}
+.PaddingTxt{
+    padding: 20px;
+}
+
+@media only screen and (max-width: 567px){
+    .infoBackgorund{
+        width: auto!important;
+        padding: 20px!important;
+    }
+}
+

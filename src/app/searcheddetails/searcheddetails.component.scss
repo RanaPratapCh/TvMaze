@@ -1,3 +1,4 @@
+@import '../colors/color';
 .zoom {
     width: 100%;
     transition: transform .2s; 
@@ -5,6 +6,9 @@
     margin: 0 auto;
     cursor: pointer;
     border-radius: 20px;
+  }
+  .TopConatiner{
+      height: 100%;
   }
   
   .zoom:hover {
@@ -14,8 +18,8 @@
 
 .ImagetextAlign{
     margin-top:-100px;
-    background: #0c111b;
-    color: white;
+    background: $containerBackgroundColor;
+    color: $fontColorWhite;
     position: absolute;
     padding: 10px;
     width: 101%;
@@ -26,8 +30,8 @@
     cursor: pointer;
 }
 .VerticalCenter{
-    margin-top: 25%;
-    margin-bottom: 20%;
+    margin-top: 340px;
+    margin-bottom: 340px;
 }
 .HeadingAlign{
     padding: 10px;
@@ -40,7 +44,7 @@
     height: 106px;
 }
 .cwhite{
-    color: white;
+    color: $fontColorWhite;
 }
 
 .Name{
@@ -51,4 +55,12 @@
 }
 .Language{
     font-size: 12px;
+}
+
+@media only screen and (max-width: 567px){
+    .zoom{
+        padding: 50px!important;
+        padding-top: 20px!important;
+        padding-bottom: 20px!important;
+    }
 }

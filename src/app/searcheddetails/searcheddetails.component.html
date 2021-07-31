@@ -1,12 +1,17 @@
 <div class="container-fluid TopConatiner">
-    <div class="SecondContainer">
-        <div *ngIf="SearchResult?.length > 0">
-            <h4 class="cwhite HeadingAlign">Showing all results for : <i>{{UserSearch}}</i></h4>
+    <div *ngIf="searchDetailsLoading">
+        <div class="Loadingalign" align="center">
+            <img class="GifAlign" src="/assets/Dual Ring-1s-110px.gif"/>
         </div>
-        <div *ngIf="SearchResult?.length > 0">
-            <div *ngFor="let data of SearchResult">
-                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 TextOnHover">
-                    <div  [routerLink]="['/ShowDetails',data.show.externals.tvrage]">
+    </div>
+    <div  *ngIf="!searchDetailsLoading" class="SecondContainer">
+        <div *ngIf="searchResult?.length > 0">
+            <h4 class="cwhite HeadingAlign">Showing all results for : <i>{{userSearch}}</i></h4>
+        </div>
+        <div *ngIf="searchResult?.length > 0">
+            <div *ngFor="let data of searchResult">
+                <div *ngIf="data.show.image" class="col-lg-2 col-md-4 col-sm-6 col-xs-12 TextOnHover">
+                    <div  [routerLink]="['/ShowDetails',data.show.externals.thetvdb]">
                         <img class="zoom" src="{{data.show.image.medium}}" />
                         <div class="ImagetextAlign">
                             <div class="Name">{{data.show.name}}</div>
@@ -21,7 +26,7 @@
             </div>
         </div>
 
-        <div *ngIf="SearchResult?.length == 0">
+        <div *ngIf="searchResult?.length == 0">
             <div class="cwhite VerticalCenter" align="center">
                 <h3>Nothing found!</h3>
                 <h4>Try searching for something else</h4>

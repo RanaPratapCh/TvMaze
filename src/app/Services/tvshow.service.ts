@@ -17,6 +17,6 @@ export class TvshowService {
     return this.http.get("https://api.tvmaze.com/search/shows?q=" +SearchString);
   }
   getShowDetails(ShowId:number){
-    return this.http.get("https://api.tvmaze.com/lookup/shows?tvrage=" +ShowId);
+    return this.http.get("https://api.tvmaze.com/lookup/shows?thetvdb=" +ShowId);
   }
 }

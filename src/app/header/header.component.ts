@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  SearchText:string = "";
+  searchText:string = "";
 
   constructor(private router:Router) { }
 
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   }
   onSubmit(formData:any){
     
-    this.router.navigate(['/Search',formData.value.SearchText])
+    this.router.navigate(['/Search',formData.value.searchText])
   }
 
 }
