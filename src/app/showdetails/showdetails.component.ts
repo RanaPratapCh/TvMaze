@@ -11,8 +11,8 @@ import { TvshowService } from '../services/tvshow.service';
 export class ShowdetailsComponent implements OnInit,OnDestroy {
 
   showDetailsId = 0;
-  showDetailsSubscription : Subscription | undefined;
-  showData:any;
+  showDetailsSubscription: Subscription = new Subscription;
+  showData:any="";
   showDetailsLoading = false;
 
   constructor(private activeRoute:ActivatedRoute,private tvShows:TvshowService) { }

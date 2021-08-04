@@ -10,12 +10,11 @@ export class HeaderComponent implements OnInit {
 
   searchText:string = "";
 
-  constructor(private router:Router) { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
   onSubmit(formData:any){
-    
     this.router.navigate(['/Search',formData.value.searchText])
   }
 

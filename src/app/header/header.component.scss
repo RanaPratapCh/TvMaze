@@ -33,7 +33,7 @@ input:focus-visible{
     width: 400px;
     transition: width 0.5s; 
 }
-::placeholder { /* Most modern browsers support this now. */
+::placeholder { 
     color:    $fontColorWhite;
  }
  .glyphicon-search{

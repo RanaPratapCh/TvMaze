@@ -11,8 +11,8 @@ import { TvshowService } from '../services/tvshow.service';
 export class SearcheddetailsComponent implements OnInit,OnDestroy {
 
   userSearch = "";
-  getUserSearchDetailsSubscription : Subscription | undefined;
-  searchResult : any;
+  getUserSearchDetailsSubscription: Subscription = new Subscription;
+  searchResult : any = "";
   searchDetailsLoading = false;
 
   constructor(private activeRoute:ActivatedRoute,private tvShows:TvshowService) { }

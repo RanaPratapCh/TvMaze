@@ -7,7 +7,6 @@ import { TvshowService } from './services/tvshow.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Tvshow';
 
   constructor(){
 

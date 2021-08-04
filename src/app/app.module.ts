@@ -11,6 +11,7 @@ import { ShowdetailsComponent } from './showdetails/showdetails.component';
 import { SearcheddetailsComponent } from './searcheddetails/searcheddetails.component'
 import { FormsModule } from '@angular/forms';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { TvshowService } from './services/tvshow.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     FormsModule,
     IvyCarouselModule
   ],
-  providers: [],
+  providers: [TvshowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
