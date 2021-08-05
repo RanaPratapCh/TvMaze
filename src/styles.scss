@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+.SecondContainer{
+    margin-top: 100px;
+}
+.TopConatiner{
+  background: #0c111b;
+  padding-bottom: 30px;
+  
+}
+.GifAlign{
+  width: 5%;
+}
+.Loadingalign{
+  margin-top: 340px;
+  margin-bottom: 340px;
+}
+.VerticalCenter{
+  margin-top: 340px;
+  margin-bottom: 340px;
+}
+@media only screen and (max-width: 567px){
+  .GifAlign{
+      width: 20%;
+  }
+  .TopConatiner{
+    height: 120vh;
+  }
+}

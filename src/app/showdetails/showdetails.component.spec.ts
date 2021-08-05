@@ -56,6 +56,24 @@ describe('ShowdetailsComponent', () => {
     expect(component.showDetailsLoading).toBeTrue();
   });
 
+  it('should define errorShowDetailsLoading', () => {
+    expect(component.errorShowDetailsLoading).toBeDefined();
+  });
+  it('should define errorShowDetailsLoading', () => {
+    expect(component.errorShowDetailsLoading).toBeFalse();
+  });
+
+  it('should intialize errorShowDetailsLoading true getShowDetailsData', () => {
+    component.getShowDetailsData();
+    expect(component.errorShowDetailsLoading).toBeFalse();
+  });
+
+  it('should call ngOnInit', () => {
+    spyOn(component,'accessingRouteParameter').and.callThrough();
+    component.ngOnInit();
+    expect(component.accessingRouteParameter).toHaveBeenCalled();
+  });
+
   it('should call getSearchDetails and get response as empty array', fakeAsync(() => {
     const fixture = TestBed.createComponent(ShowdetailsComponent);
     const component = fixture.debugElement.componentInstance;

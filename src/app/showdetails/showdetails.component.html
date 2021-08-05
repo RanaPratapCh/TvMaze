@@ -5,7 +5,13 @@
                 <img class="GifAlign" src="/assets/Dual Ring-1s-110px.gif"/>
             </div>
         </div>
-        <div *ngIf="!showDetailsLoading">
+        <div *ngIf="errorShowDetailsLoading">
+            <div class="cwhite VerticalCenter" align="center">
+                <h3>Error occured while showing show details!</h3>
+                <h4>Please try again after some time</h4>
+            </div>
+        </div>
+        <div *ngIf="!showDetailsLoading && !errorShowDetailsLoading">
             <div *ngIf="showData" class="PaddingTxt">
                 <img class="ImageAlign" src="{{showData.image.medium}}" />
                 <span class="cwhite">

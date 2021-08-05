@@ -68,6 +68,23 @@ describe('SearcheddetailsComponent', () => {
     expect(component.searchDetailsLoading).toBeTrue();
   });
 
+  it('should define errorSearchDetailsLoading', () => {
+    expect(component.errorSearchDetailsLoading).toBeDefined();
+  });
+  it('should intialize searchDetailsLoading', () => {
+    expect(component.errorSearchDetailsLoading).toBeFalse();
+  });
+  it('should intialize errorSearchDetailsLoading true getSearchDetails', () => {
+    component.getSearchDetails();
+    expect(component.errorSearchDetailsLoading).toBeFalse();
+  });
+  
+  it('should call ngOnInit', () => {
+    spyOn(component,'accessingRouteParameter').and.callThrough();
+    component.ngOnInit();
+    expect(component.accessingRouteParameter).toHaveBeenCalled();
+  });
+
   it('should call getSearchDetails and get response as empty array', fakeAsync(() => {
     const fixture = TestBed.createComponent(SearcheddetailsComponent);
     const component = fixture.debugElement.componentInstance;

@@ -4,7 +4,13 @@
             <img class="GifAlign" src="/assets/Dual Ring-1s-110px.gif"/>
         </div>
     </div>
-    <div  *ngIf="!searchDetailsLoading" class="SecondContainer">
+    <div *ngIf="errorSearchDetailsLoading">
+        <div class="cwhite VerticalCenter" align="center">
+            <h3>Error occured while showing search details!</h3>
+            <h4>Please try again after some time</h4>
+        </div>
+    </div>
+    <div  *ngIf="!searchDetailsLoading && !errorSearchDetailsLoading" class="SecondContainer">
         <div *ngIf="searchResult?.length > 0">
             <h4 class="cwhite HeadingAlign">Showing all results for : <i>{{userSearch}}</i></h4>
         </div>

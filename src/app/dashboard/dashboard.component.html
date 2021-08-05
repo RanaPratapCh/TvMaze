@@ -5,76 +5,90 @@
                 <img class="GifAlign" src="/assets/Dual Ring-1s-110px.gif"/>
             </div>
         </div>
-        <div *ngIf="!dashboardLoading" class="row ContainerMargin">
-            <div class="row ContainerMargin">
-                <div>
-                    <h4 class="cwhite HeadingAlign">Popular shows</h4>
-                </div>
-                <carousel>
-                    <div *ngFor="let data of topShows" class="carousel-cell">
-                        <div class="TextOnHover">
-                            <div [routerLink]="['/ShowDetails',data.externals.thetvdb]">
-                                <img class="zoom" src="{{data.image.medium}}" />
-                                <div class="ImagetextAlign">
-                                    <div class="Name">{{data.name}}</div>
-                                    <div class="Genres">{{data.genres}}</div>
-                                    <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
-                                            {{data.network.name}}</span></div>
-                                    <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
-                                        {{data.rating.average}}</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </carousel>
+        <div *ngIf="errorDashboardLoading">
+            <div class="cwhite VerticalCenter" align="center">
+                <h3>Sorry some error occured!</h3>
+                <h4>Please try again after some time</h4>
             </div>
-
-            <div class="row ContainerMargin">
-                <div>
-                    <h4 class="cwhite HeadingAlign">Comedy Shows</h4>
+        </div>
+        <div *ngIf="!dashboardLoading && !errorDashboardLoading" class="row ContainerMargin">
+            <div *ngIf="allShows?.length == 0">
+                <div class="cwhite VerticalCenter" align="center">
+                    <h3>Nothing found!</h3>
+                    <h4>Try searching for something else</h4>
                 </div>
-                <carousel>
-                    <div *ngFor="let data of comedyShows" class="carousel-cell">
-                        <div class=" TextOnHover">
-                            <div [routerLink]="['/ShowDetails',data.externals.thetvdb]">
-                                <img class="zoom" src="{{data.image.medium}}" />
-                                <div class="ImagetextAlign">
-                                    <div class="Name">{{data.name}}</div>
-                                    <div class="Genres">{{data.genres}}</div>
-                                    <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
-                                            {{data.network.name}}</span></div>
-                                    <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
-                                        {{data.rating.average}}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </carousel>
             </div>
-
-            <div class="row ContainerMargin">
-                <div>
-                    <h4 class="cwhite HeadingAlign">Popular in Drama</h4>
+            <div *ngIf="allShows?.length > 0">
+                <div class="row ContainerMargin">
+                    <div>
+                        <h4 class="cwhite HeadingAlign">Popular shows</h4>
+                    </div>
+                    <carousel>
+                        <div *ngFor="let data of topShows" class="carousel-cell">
+                            <div class="TextOnHover">
+                                <div [routerLink]="['/ShowDetails',data.externals.thetvdb]">
+                                    <img class="zoom" src="{{data.image.medium}}" />
+                                    <div class="ImagetextAlign">
+                                        <div class="Name">{{data.name}}</div>
+                                        <div class="Genres">{{data.genres}}</div>
+                                        <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
+                                                {{data.network.name}}</span></div>
+                                        <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
+                                            {{data.rating.average}}</div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </carousel>
                 </div>
-                <carousel>
-                    <div *ngFor="let data of dramaShows" class="carousel-cell">
-                        <div class=" TextOnHover">
-                            <div [routerLink]="['/ShowDetails',data.externals.thetvdb]">
-                                <img class="zoom" src="{{data.image.medium}}" />
-                                <div class="ImagetextAlign">
-                                    <div class="Name">{{data.name}}</div>
-                                    <div class="Genres">{{data.genres}}</div>
-                                    <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
-                                            {{data.network.name}}</span></div>
-                                    <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
-                                        {{data.rating.average}}</div>
+            
+                <div class="row ContainerMargin">
+                    <div>
+                        <h4 class="cwhite HeadingAlign">Comedy Shows</h4>
+                    </div>
+                    <carousel>
+                        <div *ngFor="let data of comedyShows" class="carousel-cell">
+                            <div class=" TextOnHover">
+                                <div [routerLink]="['/ShowDetails',data.externals.thetvdb]">
+                                    <img class="zoom" src="{{data.image.medium}}" />
+                                    <div class="ImagetextAlign">
+                                        <div class="Name">{{data.name}}</div>
+                                        <div class="Genres">{{data.genres}}</div>
+                                        <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
+                                                {{data.network.name}}</span></div>
+                                        <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
+                                            {{data.rating.average}}</div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
+                    </carousel>
+                </div>
+            
+                <div class="row ContainerMargin">
+                    <div>
+                        <h4 class="cwhite HeadingAlign">Popular in Drama</h4>
                     </div>
-                </carousel>
+                    <carousel>
+                        <div *ngFor="let data of dramaShows" class="carousel-cell">
+                            <div class=" TextOnHover">
+                                <div [routerLink]="['/ShowDetails',data.externals.thetvdb]">
+                                    <img class="zoom" src="{{data.image.medium}}" />
+                                    <div class="ImagetextAlign">
+                                        <div class="Name">{{data.name}}</div>
+                                        <div class="Genres">{{data.genres}}</div>
+                                        <div class="Language">{{data.language}}<span *ngIf="data.network"> ,
+                                                {{data.network.name}}</span></div>
+                                        <div class="Language">Rating : <i class="glyphicon glyphicon-star"></i>
+                                            {{data.rating.average}}</div>
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </carousel>
+                </div>
             </div>
         </div>
     </div>

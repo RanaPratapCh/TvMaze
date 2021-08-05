@@ -69,6 +69,17 @@ describe('DashboardComponent', () => {
     expect(component.dashboardLoading).toBeTrue();
   });
 
+  it('should define errorDashboardLoading', () => {
+    expect(component.errorDashboardLoading).toBeDefined();
+  });
+  it('should intialize dashboardLoading', () => {
+    expect(component.errorDashboardLoading).toBeFalse();
+  });
+  it('should intialize dashboardLoading true inside getAllShowsAndDetails', () => {
+    component.getAllShowsAndDetails();
+    expect(component.errorDashboardLoading).toBeFalse();
+  });
+
   it('should call ngOnInit', () => {
     spyOn(component,'getAllShowsAndDetails').and.callThrough();
     component.ngOnInit();

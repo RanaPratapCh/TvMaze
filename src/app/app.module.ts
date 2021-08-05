@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { ShowdetailsComponent } from './showdetails/showdetails.component';
 import { SearcheddetailsComponent } from './searcheddetails/searcheddetails.component'
 import { FormsModule } from '@angular/forms';
@@ -18,7 +17,6 @@ import { TvshowService } from './services/tvshow.service';
     AppComponent,
     DashboardComponent,
     HeaderComponent,
-    HomepageComponent,
     ShowdetailsComponent,
     SearcheddetailsComponent
   ],

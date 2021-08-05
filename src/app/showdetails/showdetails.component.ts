@@ -14,10 +14,14 @@ export class ShowdetailsComponent implements OnInit,OnDestroy {
   showDetailsSubscription: Subscription = new Subscription;
   showData:any="";
   showDetailsLoading = false;
+  errorShowDetailsLoading = false;
 
   constructor(private activeRoute:ActivatedRoute,private tvShows:TvshowService) { }
 
   ngOnInit(): void {
+    this.accessingRouteParameter();
+  }
+  accessingRouteParameter(){
     this.activeRoute.params.forEach((params: Params)=>{
       if(params['id'] !== undefined){
         this.showDetailsId = params['id'];
@@ -26,20 +30,22 @@ export class ShowdetailsComponent implements OnInit,OnDestroy {
         this.showDetailsId = 0;
       }
     });
-
   }
   getShowDetailsData(){
     this.showDetailsLoading = true;
+    this.errorShowDetailsLoading = false;
     this.showDetailsSubscription = this.tvShows.getShowDetails(this.showDetailsId).subscribe((data)=>{
       try{
         this.showDetailsLoading = false;
+        this.errorShowDetailsLoading = false;
         this.showData = data;
       }catch(e){
         this.showDetailsLoading = false;
+        this.errorShowDetailsLoading = true;
       }
-      
     },error =>{
       this.showDetailsLoading = false;
+      this.errorShowDetailsLoading = true;
     });
   }
   ngOnDestroy(){
