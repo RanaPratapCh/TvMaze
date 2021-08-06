@@ -1,27 +1,33 @@
-# Tvshow
+# Requirement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
+Use an open TV shows API http://www.tvmaze.com/api to create an application that allows users to view a few lists of TV shows based on different genres (drama, comedy, sports,etc.).
 
-## Development server
+## App about
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Popular TV shows based on their rating and genre on a dashboard and when the user clicks on a TV show then the details of that TV show should be displayed on another screen. Also, the user should be able to search for a TV show to get the details.
 
-## Code scaffolding
+## Technologies used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular 11, Bootstrap, Jasmine , Karma.
 
-## Build
+## API Url
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+http://www.tvmaze.com/api
 
-## Running unit tests
+## Unit Testing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For unit testing used Jasmine framework and Karma runner command for unit testing is ## ng test
 
-## Running end-to-end tests
+## Responsiveness
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Used Bootstrap for Responsiveness application can see in Laptop,Tab,Mobile devices.
 
-## Further help
+## How to start
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+First you need to install Node and Angular after that foloow the steps.
+1. Clone the project.
+2. npm install.
+3. ng serve.
+
+
+
