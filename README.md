@@ -20,7 +20,7 @@ For unit testing used Jasmine framework and Karma runner command for unit testin
 
 ## Responsiveness
 
-Used Bootstrap for Responsiveness application can see in Laptop,Tab,Mobile devices.
+Used Bootstrap for Responsiveness application can see in Laptop,Tablet and Mobile devices.
 
 ## How to start
 
