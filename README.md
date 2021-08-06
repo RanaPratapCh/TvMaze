@@ -20,11 +20,11 @@ For unit testing used Jasmine framework and Karma runner command for unit testin
 
 ## Responsiveness
 
-Used Bootstrap for Responsiveness application can see in Laptop,Tablet and Mobile devices.
+Used Bootstrap for Responsiveness application can see in Laptops,Tablets and Mobile devices.
 
 ## How to start
 
-First you need to install Node and Angular after that foloow the steps.
+First you need to install Node and Angular after that follow the steps.
 1. Clone the project.
 2. npm install.
 3. ng serve.
